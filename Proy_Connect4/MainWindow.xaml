@@ -1,0 +1,16 @@
+﻿<Window x:Name="xwin" x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proy_Connect4"
+        mc:Ignorable="d"
+        Title="Ventana " Height="450" Width="600" Closing="Window_Closing" Loaded="Window_Loaded">
+    <Grid x:Name="grid0">
+        <Label x:Name="lblTitulo" Content="Conecta 4" HorizontalAlignment = "Center" VerticalAlignment="Top" Height="90" Padding="20,20" FontSize="48" FontFamily="Showcard Gothic"  HorizontalContentAlignment = "Center" VerticalContentAlignment="Center" Margin="0,10"/>
+        <Label x:Name="lblNombre" Content="Nombre Jugador:"  HorizontalAlignment = "Center"  VerticalAlignment="Top"  Height="50" Margin="0,120"  FontSize="26" HorizontalContentAlignment = "Center" />
+        <TextBox x:Name="txJugador" Text="Escribe tu nombre... "  HorizontalAlignment = "Center" VerticalAlignment="Center" Height="50"  HorizontalContentAlignment = "Center"  Width="400" FontSize="30" FontFamily="Showcard Gothic" Margin="100,174,92,195">
+        </TextBox>
+        <Button x:Name="btnJugar" Content="Jugar"  VerticalAlignment="Bottom" Height="100"  Width="300" FontSize="48" FontFamily="Showcard Gothic" Margin="146,0,146,20" IsDefault="True" IsEnabled="False"/>
+    </Grid>
+</Window>

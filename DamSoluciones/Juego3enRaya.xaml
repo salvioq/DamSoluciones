@@ -1,0 +1,39 @@
+﻿<Window x:Class="Juego3enRaya"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DamSoluciones"
+        mc:Ignorable="d"
+        Title="Juego3enRaya" Height="523.6" Width="928.8">
+    <Grid Background="#FFCEFEFE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="principal" Width="3*"/>
+            <ColumnDefinition x:Name="secundaria"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="lblTitulo" Content="Tres en raya" HorizontalAlignment="Center" Height="70" VerticalAlignment="Top" Width="395" FontSize="48" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.ColumnSpan="1" />
+        <WrapPanel x:Name="panel3" Margin="193,124,172,49.6" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <Button x:Name="A1" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" AutomationProperties.AcceleratorKey="A" TabIndex="2"/>
+            <Button x:Name="A2" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" AutomationProperties.AcceleratorKey="B" TabIndex="2"/>
+            <Button x:Name="A3" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" AutomationProperties.AcceleratorKey="C" TabIndex="2"/>
+            <Button x:Name="B1" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+            <Button x:Name="B2" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+            <Button x:Name="B3" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+            <Button x:Name="C1" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+            <Button x:Name="C2" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+            <Button x:Name="C3" Height="100" Width="100" MinWidth="100" MinHeight="100" Margin="1,1" MaxWidth="100" MaxHeight="100" BorderThickness="3" TabIndex="2"/>
+        </WrapPanel>
+        <StackPanel Grid.Column="1" Margin="0,10,0,10" Orientation="Vertical" HorizontalAlignment="Center" >
+            <Button x:Name="btnIniciar" Height="24" Margin="0,5" Content="Empezar"  Width="100" BorderThickness="3" IsDefault="True" TabIndex="1"/>
+            <Button x:Name="btnTerminar" Height="24" Margin="0,5" Content="Terminar"  Width="100" BorderThickness="3" IsCancel="True"/>
+            <Label x:Name="lblTurno" Content="Turno" Margin="0,0" Height="50" VerticalAlignment="Top"  FontSize="36" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,2,2" />
+            <Label x:Name="txTurnoAzul" Content="AZUL" Margin="10,0" Height="36" VerticalAlignment="Top"  FontSize="24" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF4444FF" Visibility="Hidden" />
+            <Label x:Name="txTurnoRojo" Content="ROJO" Margin="10,0" Height="36" VerticalAlignment="Top"  FontSize="24" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFFF4444" Visibility="Hidden" />
+            <Label x:Name="lblGanador" Content="" Margin="0,4" Height="50" VerticalAlignment="Top"  FontSize="36" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,3,0,2" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+            <Label x:Name="lblMarcador" Content="Puntos" Margin="10,4" Height="50" VerticalAlignment="Top"  FontSize="36" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderThickness="0,0,0,2" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" />
+            <Label x:Name="txPuntAzul" Content="0" Margin="30,0" Height="36" VerticalAlignment="Top"  FontSize="24" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FF4040FF" />
+            <Label x:Name="txPuntRojo" Content="0" Margin="30,0" Height="36" VerticalAlignment="Top"  FontSize="24" FontFamily="Showcard Gothic" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="#FFFF4040" />
+
+        </StackPanel>
+    </Grid>
+</Window>
