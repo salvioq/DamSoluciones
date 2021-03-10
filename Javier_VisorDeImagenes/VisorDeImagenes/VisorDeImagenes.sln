@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1321
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisorDeImagenes", "VisorDeImagenes\VisorDeImagenes.csproj", "{7FD470C5-AE7A-4FCB-82A9-9C97239E22BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FD470C5-AE7A-4FCB-82A9-9C97239E22BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FD470C5-AE7A-4FCB-82A9-9C97239E22BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FD470C5-AE7A-4FCB-82A9-9C97239E22BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FD470C5-AE7A-4FCB-82A9-9C97239E22BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B4240CD9-4FEC-481A-9694-488B2D6BE091}
+	EndGlobalSection
+EndGlobal
