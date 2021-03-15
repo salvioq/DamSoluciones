@@ -85,7 +85,7 @@ namespace AgendaContactos_DAM
             fecha_BajaDatePicker.Text = "";
         }
 
-        private void DeleteCustomerCommandHandler(object sender, ExecutedRoutedEventArgs e)
+        private void DeleteCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
             // If existing window is visible, delete the customer and all their orders.  
             // In a real application, you should add warnings and allow the user to cancel the operation.  
@@ -97,14 +97,24 @@ namespace AgendaContactos_DAM
 
             if (cust != null)
             {
-                     context.Lista_Contactos.Remove(cust);
+                context.Lista_Contactos.Remove(cust);
             }
             context.SaveChanges();
             lista_ContactosViewSource.View.Refresh();
         }
 
-        private void UpdateCommandHandler(object sender, ExecutedRoutedEventArgs e)
+        private void AddCommandHandler(object sender, ExecutedRoutedEventArgs e)
         {
+            double dsueldo = 0.0;
+            try {
+                dsueldo = Convert.ToDouble(sueldoTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sueldo debe ser tipo Double" + ex.StackTrace);
+                return;
+            }
+
             // Create a new object because the old one  
             // is being tracked by EF now.  
             Lista_Contactos nuevo = new Lista_Contactos
@@ -112,31 +122,73 @@ namespace AgendaContactos_DAM
                 Apellido1 = apellido1TextBox.Text,
                 Apellido2 = apellido2TextBox.Text,
                 Nombre = nombreTextBox.Text,
-                // etc
-
-                    //Address = add_addressTextBox.Text,
-                    //City = add_cityTextBox.Text,
-                    //CompanyName = add_companyNameTextBox.Text,
-                    //ContactName = add_contactNameTextBox.Text,
-                    //ContactTitle = add_contactTitleTextBox.Text,
-                    //Country = add_countryTextBox.Text,
-                    //CustomerID = add_customerIDTextBox.Text,
-                    //Fax = add_faxTextBox.Text,
-                    //Phone = add_phoneTextBox.Text,
-                    //PostalCode = add_postalCodeTextBox.Text,
-                    //Region = add_regionTextBox.Text
-                };
-            int len = context.Lista_Contactos.Local.Count();
-            int pos = len;
-            for (int i = 0; i < len; ++i)
-            {
-                if (String.CompareOrdinal(nuevo.Apellido1, context.Lista_Contactos.Local[i].Apellido1) < 0)               {
-                    pos = i;
-                    break;
-                }
-            }
-            context.Lista_Contactos.Local.Insert(pos, nuevo);
+                DNI = dNITextBox.Text,
+                email = emailTextBox.Text,
+                Sueldo = dsueldo,
+                Telefono = telefonoTextBox.Text,
+                Fecha_Alta = fecha_AltaDatePicker.SelectedDate,
+                Fecha_Baja = fecha_BajaDatePicker.SelectedDate
+            };
+            // Add the new object into the EF model  
+            context.Lista_Contactos.Add(nuevo);
+            context.SaveChanges();
             lista_ContactosViewSource.View.Refresh();
             lista_ContactosViewSource.View.MoveCurrentTo(nuevo);
         }
+
+        //// Save the changes, either for a new customer, a new order  
+        //// or an edit to an existing customer or order.
+        //context.SaveChanges();
+
+        //        int len = context.Lista_Contactos.Local.Count();
+        //        int pos = len;
+        //        for (int i = 0; i < len; ++i)
+        //        {
+        //            if (String.CompareOrdinal(nuevo.Apellido1, context.Lista_Contactos.Local[i].Apellido1) < 0)
+        //            {
+        //                pos = i;
+        //                break;
+        //            }
+        //        }
+        //        context.Lista_Contactos.Local.Insert(pos, nuevo);
+        //        lista_ContactosViewSource.View.Refresh();
+        //        lista_ContactosViewSource.View.MoveCurrentTo(nuevo);
+        // }
+
+        private void UpdateCommandHandler(object sender, ExecutedRoutedEventArgs e)
+        {
+            double dsueldo = 0.0;
+            try
+            {
+                dsueldo = Convert.ToDouble(sueldoTextBox.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sueldo debe ser tipo Double" + ex.StackTrace);
+                return;
+            }
+
+            // Create a new object because the old one  
+            // is being tracked by EF now.  
+            Lista_Contactos nuevo = new Lista_Contactos
+            {
+                Apellido1 = apellido1TextBox.Text,
+                Apellido2 = apellido2TextBox.Text,
+                Nombre = nombreTextBox.Text,
+                DNI = dNITextBox.Text,
+                email = emailTextBox.Text,
+                Sueldo = dsueldo,
+                Telefono = telefonoTextBox.Text,
+                Fecha_Alta = fecha_AltaDatePicker.SelectedDate,
+                Fecha_Baja = fecha_BajaDatePicker.SelectedDate
+            };
+            // Add the new object into the EF model  
+            context.Lista_Contactos.Add(nuevo);
+            context.SaveChanges();
+            lista_ContactosViewSource.View.Refresh();
+            lista_ContactosViewSource.View.MoveCurrentTo(nuevo);
+        }
+
+    }
+
 }

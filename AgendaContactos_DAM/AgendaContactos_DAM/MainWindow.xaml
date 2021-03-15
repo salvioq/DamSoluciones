@@ -36,15 +36,14 @@
         <!--coleccion de la VISTA enlazada binding a la BD via EF-->
         <CollectionViewSource x:Key="lista_ContactosViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Lista_Contactos}, CreateList=True}"/>
         <!--Routed comandos--> 
-        <RoutedUICommand x:Key="FirstCommand" Text="First"/>
-        <RoutedUICommand x:Key="LastCommand" Text="Last"/>
-        <RoutedUICommand x:Key="NextCommand" Text="Next"/>
-        <RoutedUICommand x:Key="PreviousCommand" Text="Previous"/>
-        <RoutedUICommand x:Key="DeleteCustomerCommand" Text="Delete Customer"/>
-        <RoutedUICommand x:Key="DeleteOrderCommand" Text="Delete Order"/>
-        <RoutedUICommand x:Key="UpdateCommand" Text="Update"/>
-        <RoutedUICommand x:Key="AddCommand" Text="Add"/>
-        <RoutedUICommand x:Key="CancelCommand" Text="Cancel"/>
+        <RoutedUICommand x:Key="FirstCommand" Text="Primero"/>
+        <RoutedUICommand x:Key="LastCommand" Text="Ultimo"/>
+        <RoutedUICommand x:Key="NextCommand" Text="Siguiente"/>
+        <RoutedUICommand x:Key="PreviousCommand" Text="Previo"/>
+        <RoutedUICommand x:Key="DeleteCommand" Text="Borrar contacto"/>
+        <RoutedUICommand x:Key="UpdateCommand" Text="Actualizar contacto"/>
+        <RoutedUICommand x:Key="AddCommand" Text="Nuevo"/>
+        <RoutedUICommand x:Key="CancelCommand" Text="Cancelar"/>
     </Window.Resources>
     <!--Enlace routed comandos a los metodos EXECUTED-->
     <Window.CommandBindings>
@@ -52,8 +51,7 @@
         <CommandBinding Command="{StaticResource LastCommand}" Executed="LastCommandHandler"/>
         <CommandBinding Command="{StaticResource NextCommand}" Executed="NextCommandHandler"/>
         <CommandBinding Command="{StaticResource PreviousCommand}" Executed="PreviousCommandHandler"/>
-        <CommandBinding Command="{StaticResource DeleteCustomerCommand}" Executed="DeleteCustomerCommandHandler"/>
-        <CommandBinding Command="{StaticResource DeleteOrderCommand}" Executed="DeleteOrderCommandHandler"/>
+        <CommandBinding Command="{StaticResource DeleteCommand}" Executed="DeleteCommandHandler"/>
         <CommandBinding Command="{StaticResource UpdateCommand}" Executed="UpdateCommandHandler"/>
         <CommandBinding Command="{StaticResource AddCommand}" Executed="AddCommandHandler"/>
         <CommandBinding Command="{StaticResource CancelCommand}" Executed="CancelCommandHandler"/>
@@ -65,16 +63,16 @@
             <RowDefinition Height="30*" MaxHeight="30" MinHeight="30"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" 
-                    Orientation="Horizontal" Margin="2,2,2,0" Height="36" VerticalAlignment="Top" Background="Gainsboro" DataContext="{StaticResource customerViewSource}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                    Orientation="Horizontal" Margin="2,2,2,0" Height="36" VerticalAlignment="Top" Background="Gainsboro" 
+                    DataContext="{StaticResource lista_ContactosViewSource}" >
             <Button Name="btnFirst" Content="|◄" Command="{StaticResource FirstCommand}" Style="{StaticResource NavButton}"/>
             <Button Name="btnPrev" Content="◄" Command="{StaticResource PreviousCommand}" Style="{StaticResource NavButton}"/>
             <Button Name="btnNext" Content="►" Command="{StaticResource NextCommand}" Style="{StaticResource NavButton}"/>
             <Button Name="btnLast" Content="►|" Command="{StaticResource LastCommand}" Style="{StaticResource NavButton}"/>
-            <Button Name="btnDelete" Content="Delete Customer" Command="{StaticResource DeleteCustomerCommand}" FontSize="11" Width="120" Style="{StaticResource NavButton}"/>
-            <Button Name="btnAdd" Content="New Customer" Command="{StaticResource AddCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
-            <Button Content="New Order" Name="btnNewOrder" FontSize="11" Width="80" Style="{StaticResource NavButton}" Click="NewOrder_click"/>
-            <Button Name="btnUpdate" Content="Commit" Command="{StaticResource UpdateCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
-            <Button Content="Cancel" Name="btnCancel" Command="{StaticResource CancelCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
+            <Button Name="btnDelete" Content="Borrar contacto" Command="{StaticResource DeleteCommand}" FontSize="11" Width="120" Style="{StaticResource NavButton}"/>
+            <Button Name="btnAdd" Content="Nuevo contacto" Command="{StaticResource AddCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
+            <Button Name="btnUpdate" Content="Actualizar" Command="{StaticResource UpdateCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
+            <Button Name="btnCancel" Content="Cancelar" Command="{StaticResource CancelCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
         </StackPanel>
         <Label Content="Ficha de Contacto" VerticalAlignment="Top" Grid.Row="1" Width="226" Margin="10,10,556,0" Height="33"/>
         <Grid x:Name="grid1" DataContext="{StaticResource lista_ContactosViewSource}" 
@@ -84,7 +82,6 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>
-
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
