@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Tutorial1_VisorImagen.Properties
+namespace SuperGrid.Properties
 {
 
 
