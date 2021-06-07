@@ -6,35 +6,33 @@
         xmlns:local="clr-namespace:SuperGrid"
         mc:Ignorable="d"
         Title="InterfazExcel" Height="450" Width="1100">
+    <Window.Resources>
+        <Style x:Key="eti" TargetType="{x:Type Label}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="Width" Value="100" />
+        </Style>
+        <Style x:Key="CustTextBox" TargetType="{x:Type TextBox}" BasedOn="{x:Null}">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Height" Value="26"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*" MinHeight="300" />
-            <RowDefinition Height="10*" MinHeight="150" />
-        </Grid.RowDefinitions> 
+            <RowDefinition Height="10*" MinHeight="100" />
+        </Grid.RowDefinitions>
         <Grid x:Name="InterfaceCeldas" ShowGridLines="True" Grid.Row="0" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
-                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
-                <RowDefinition Height="30" />
                 <RowDefinition Height="30" />
             </Grid.RowDefinitions>
         </Grid>
@@ -50,9 +48,16 @@
             <TextBox x:Name="tbDato" HorizontalAlignment="Left" Height="23" Margin="220,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"  TextChanged="TextBox_TextChanged"/>
             <Label Content="Tipo" HorizontalAlignment="Left" Margin="330,5,0,0" VerticalAlignment="Top"  Height="31" Width="38"/>
             <TextBox x:Name="tbTipo" HorizontalAlignment="Left" Height="23" Margin="330,53,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"  TextChanged="TextBox_TextChanged"/>
+            <ListBox Name="lb" Width="100" HorizontalAlignment="Left" Margin="400,5,0,0" SelectionChanged="PrintText" SelectionMode="Single">
+                <ListBoxItem>Entero</ListBoxItem>
+                <ListBoxItem>Doble</ListBoxItem>
+                <ListBoxItem>String</ListBoxItem>
+                <ListBoxItem>Fecha</ListBoxItem>
+            </ListBox>
             <Button x:Name="btnCrear" Content="Colocar" HorizontalAlignment="Left" Margin="500,53,0,0" VerticalAlignment="Top" Width="74"  Height="20" Click="Accion_Crear"/>
             <Button x:Name="btnGenerar" Content="GenerarEXCEL" HorizontalAlignment="Left" Margin="600,53,0,0" VerticalAlignment="Top" Width="74"  Height="20" Click="Accion_Generar"/>
             <Button x:Name="btnPrueba" Content="Probar" HorizontalAlignment="Left" Margin="700,53,0,0" VerticalAlignment="Top" Width="74"  Height="20" Click="Accion_Test"/>
+            <Button x:Name="btnAcercaDe" Content="Acerca de ..." HorizontalAlignment="Left" Margin="900,53,0,0" VerticalAlignment="Top" Width="74"  Height="20" Click="Accion_AcercaDe"/>
         </Grid>
     </Grid>
 </Window>

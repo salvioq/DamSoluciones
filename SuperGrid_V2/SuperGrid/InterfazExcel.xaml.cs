@@ -43,14 +43,36 @@ namespace SuperGrid
 
         private void PreparaInterfaz()
         {
-            // carga objetos ya definidos en el interfaz
-            ColumnDefinition coldef;
-            RowDefinition rowdef;
-            // coldef = InterfaceCeldas.ColumnDefinitions;
-            
+          
             //InterfaceCeldas.Children.
             Brush bGris = Brushes.LightGray;
-        
+
+            //probando grid con rows/cols dinamicamente creados
+            // coldef = InterfaceCeldas.ColumnDefinitions;
+            
+            for (int cc = 1; cc <= COLUM_MAX; cc++)
+            {
+                ColumnDefinition coldef = new ColumnDefinition();
+                coldef.Name = "COL" + cc;
+                coldef.MinWidth = 100.0;
+                coldef.MaxWidth = 100.0;
+                InterfaceCeldas.ColumnDefinitions.Add(coldef);
+            }
+            // rowdef 
+            for (int ff = 1; ff <= FILAS_MAX; ff++)
+            {
+                RowDefinition rowdef = new RowDefinition();
+                rowdef.Name = "FIL" + ff;
+                rowdef.MaxHeight = 30.0;
+                rowdef.MinHeight = 30.0;
+                InterfaceCeldas.RowDefinitions.Add(rowdef);
+            }
+            
+
+
+
+
+            // carga objetos ya definidos en el interfaz
             //Celda c = new Celda();
             //memoryCeldas[0 , 0] = c;
             memoryCeldas[0, 0] = new Celda(0, 0, "ESQUINA00");
@@ -111,9 +133,29 @@ namespace SuperGrid
 
         private void Accion_Crear(object sender, RoutedEventArgs e)
         {
+            int f = 0;
+            int c = 0;
+            Boolean errparse = false;
             Label lbNuevo = new Label();
-            lbNuevo.Content = "label" + contador++;
-            lbNuevo.Tag = "String";
+            lbNuevo.Name = "label" + contador++;
+            
+            errparse = int.TryParse(tbFila.Text, out f);
+            if (errparse)
+            {
+                MessageBox.Show("Error en fila");
+                return;
+            }
+            int.TryParse(tbColumna.Text, out c);
+            if (errparse)
+            {
+                MessageBox.Show("Error en columna");
+                return;
+            }
+            
+            lbNuevo.Tag=f.ToString() +","+c.ToString();
+            TipoCelda tc;
+
+
 
         }
 
@@ -165,6 +207,14 @@ namespace SuperGrid
             //MessageBox.Show("BYTE: " + encodedBytes[0] + "\t CHAR: " + charCalculado[0]);
 
 
+
+
+        }
+
+        private void Accion_AcercaDe(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.Form f = new AboutBox1();
+            f.ShowDialog();
         }
     }
 }
