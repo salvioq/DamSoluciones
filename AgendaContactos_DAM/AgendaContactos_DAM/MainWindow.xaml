@@ -69,10 +69,10 @@
             <Button Name="btnPrev" Content="◄" Command="{StaticResource PreviousCommand}" Style="{StaticResource NavButton}"/>
             <Button Name="btnNext" Content="►" Command="{StaticResource NextCommand}" Style="{StaticResource NavButton}"/>
             <Button Name="btnLast" Content="►|" Command="{StaticResource LastCommand}" Style="{StaticResource NavButton}"/>
-            <Button Name="btnDelete" Content="Borrar contacto" Command="{StaticResource DeleteCommand}" FontSize="11" Width="120" Style="{StaticResource NavButton}"/>
-            <Button Name="btnAdd" Content="Nuevo contacto" Command="{StaticResource AddCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
-            <Button Name="btnUpdate" Content="Actualizar" Command="{StaticResource UpdateCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
-            <Button Name="btnCancel" Content="Cancelar" Command="{StaticResource CancelCommand}" FontSize="11" Width="80" Style="{StaticResource NavButton}"/>
+            <Button Name="btnDelete" Content="Borrar contacto" Command="{StaticResource DeleteCommand}" FontSize="11" Width="100" Style="{StaticResource NavButton}"/>
+            <Button Name="btnAdd" Content="Nuevo contacto" Command="{StaticResource AddCommand}" FontSize="11" Width="100" Style="{StaticResource NavButton}"/>
+            <Button Name="btnUpdate" Content="Actualizar" Command="{StaticResource UpdateCommand}" FontSize="11" Width="100" Style="{StaticResource NavButton}"/>
+            <Button Name="btnCancel" Content="Cancelar" Command="{StaticResource CancelCommand}" FontSize="11" Width="100" Style="{StaticResource NavButton}"/>
         </StackPanel>
         <Label Content="Ficha de Contacto" VerticalAlignment="Top" Grid.Row="1" Width="226" Margin="10,10,556,0" Height="33"/>
         <Grid x:Name="grid1" DataContext="{StaticResource lista_ContactosViewSource}" 
